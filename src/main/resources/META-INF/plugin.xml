@@ -1,0 +1,74 @@
+<idea-plugin version="2">
+  <id>zjhmale.haskell-conceal</id>
+  <name>Haskell Conceal</name>
+  <vendor email="zjhmale@gmail.com" url="https://github.com/zjhmale">zjhmale</vendor>
+
+  <description><![CDATA[
+      Pretty symbols for your Clojure development with IntelliJ IDEA-based IDEs
+    ]]></description>
+
+  <change-notes><![CDATA[
+      <p>1.3.3:</p>
+      <ul>
+        <li>Add let letfn pretty symbols</li>
+        <li>Add doseq comp pretty symbols</li>
+        <li>Add and or not pretty symbols</li>
+      </ul>
+      <p>1.3.1:</p>
+      <ul>
+        <li>Remove folding group to omit annoying expand button</li>
+      </ul>
+      <p>1.3:</p>
+      <ul>
+        <li>Fix def symbol settings bug</li>
+        <li>Support >= <= pretty symbols</li>
+        <li>Add / left stop flag for set operators</li>
+        <li>Update def folding strategy</li>
+      </ul>
+      <p>1.2:</p>
+      <ul>
+        <li>Pretty symbols for #{} union difference intersection</li>
+      </ul>
+      <p>1.1:</p>
+      <ul>
+        <li>Fix def multiline issue</li>
+        <li>Update def pretty symbol</li>
+      </ul>
+      <p>1.0:</p>
+      <ul>
+        <li>Pretty symbols for def defn fn #() not= partial #{...} -> ->></li>
+      </ul>
+    ]]>
+  </change-notes>
+
+  <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
+  <idea-version since-build="131"/>
+
+  <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <lang.foldingBuilder language="Haskell"
+                         implementationClass="zjhmale.cps.CPSFoldingBuilder"/>
+
+    <applicationConfigurable implementation="zjhmale.cps.setting.CPSConfigurable"/>
+    <applicationService serviceInterface="zjhmale.cps.setting.CPSSettings"
+                        serviceImplementation="zjhmale.cps.setting.CPSSettings"/>
+  </extensions>
+
+  <application-components>
+    <!-- Add your application components here -->
+  </application-components>
+
+  <project-components>
+    <!-- Add your project components here -->
+  </project-components>
+
+  <actions>
+    <!-- Add your actions here -->
+  </actions>
+
+</idea-plugin>
