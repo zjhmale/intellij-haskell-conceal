@@ -1,18 +1,18 @@
-package zjhmale.cps
+package zjhmale.hc
 
 import com.intellij.lang.ASTNode
 import com.intellij.lang.folding.FoldingBuilder
 import com.intellij.lang.folding.FoldingDescriptor
 import com.intellij.openapi.editor.Document
 import com.intellij.openapi.util.TextRange
-import zjhmale.cps.setting.CPSSettings
+import zjhmale.hc.setting.HCSettings
 import java.util.*
 import java.util.regex.Pattern
 
 /**
  * Created by zjh on 16/3/22.
  */
-class CPSFoldingBuilder : FoldingBuilder {
+class HCFoldingBuilder : FoldingBuilder {
     private val symbolPattern = Pattern.compile(
             "pi|tau|`elem`|`notElem`|`isSubsetOf`|`union`|`intersect`|`div`|sqrt|<=|\\\\|::|!!|\\.\\.|forall|\\.|->|<-|=>|==|/=|&&|\\|\\||not|>=|<=|mzero|mempty|sum|product|let|where"
     )
@@ -62,7 +62,7 @@ class CPSFoldingBuilder : FoldingBuilder {
     private val monadSymbols = arrayOf("mzero", "mempty", "<-")
 
     override fun buildFoldRegions(node: ASTNode, document: Document): Array<out FoldingDescriptor> {
-        val settings = CPSSettings.getInstance()
+        val settings = HCSettings.getInstance()
         val descriptors = ArrayList<FoldingDescriptor>()
         val text = node.text
         val matcher = symbolPattern.matcher(text)
@@ -107,7 +107,7 @@ class CPSFoldingBuilder : FoldingBuilder {
                 if (shouldFold) {
                     val pretty = prettySymbolMaps[key] ?: return arrayOf<FoldingDescriptor>()
                     val range = TextRange.create(rangeStart, rangeEnd)
-                    descriptors.add(CPSFoldingDescriptor(node, range, null, pretty, true))
+                    descriptors.add(HCFoldingDescriptor(node, range, null, pretty, true))
                 }
             }
         }

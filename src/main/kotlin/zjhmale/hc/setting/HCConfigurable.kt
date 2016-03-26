@@ -1,4 +1,4 @@
-package zjhmale.cps.setting
+package zjhmale.hc.setting
 
 import com.intellij.openapi.options.Configurable
 import com.intellij.openapi.options.ConfigurationException
@@ -8,11 +8,11 @@ import javax.swing.JComponent
 /**
  * Created by zjh on 16/3/22.
  */
-class CPSConfigurable : Configurable {
-    private var settingsForm: CPSSettingsForm? = null
+class HCConfigurable : Configurable {
+    private var settingsForm: HCSettingsForm? = null
 
     override fun createComponent(): JComponent? {
-        settingsForm = settingsForm ?: CPSSettingsForm()
+        settingsForm = settingsForm ?: HCSettingsForm()
         return settingsForm?.component
     }
 
@@ -20,7 +20,7 @@ class CPSConfigurable : Configurable {
 
     @Throws(ConfigurationException::class)
     override fun apply() {
-        val settings = CPSSettings.getInstance()
+        val settings = HCSettings.getInstance()
 
         settings.turnOnDef = settingsForm?.prettyDefCheckBox?.isSelected ?: true
         settings.turnOnDefn = settingsForm?.prettyDefnCheckBox?.isSelected ?: true

@@ -1,11 +1,11 @@
-package zjhmale.cps.setting;
+package zjhmale.hc.setting;
 
 import javax.swing.*;
 
 /**
  * Created by zjh on 16/2/27.
  */
-public class CPSSettingsForm {
+public class HCSettingsForm {
     private JPanel appearancePanel;
     private JPanel panel;
 
@@ -32,10 +32,10 @@ public class CPSSettingsForm {
     public JCheckBox prettyOrCheckBox;
     public JCheckBox prettyNotCheckBox;
 
-    private final CPSSettings settings;
+    private final HCSettings settings;
 
-    public CPSSettingsForm() {
-        settings = CPSSettings.getInstance();
+    public HCSettingsForm() {
+        settings = HCSettings.getInstance();
     }
 
     public JComponent getComponent() {

@@ -1,4 +1,4 @@
-package zjhmale.cps.setting;
+package zjhmale.hc.setting;
 
 import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.ServiceManager;
@@ -11,10 +11,10 @@ import org.jetbrains.annotations.Nullable;
  * Created by zjh on 2016/2/16.
  */
 
-@State(name = "CPSSettings", storages = {
+@State(name = "HCSettings", storages = {
         @Storage(id = "clojureprettysymbol_config", file = "$APP_CONFIG$/clojureprettysymbol_application.xml")
 })
-public class CPSSettings implements PersistentStateComponent<CPSSettings> {
+public class HCSettings implements PersistentStateComponent<HCSettings> {
     public boolean turnOnFn = true;
     public boolean turnOnPartial = true;
     public boolean turnOnDef = true;
@@ -40,16 +40,16 @@ public class CPSSettings implements PersistentStateComponent<CPSSettings> {
 
     @Nullable
     @Override
-    public CPSSettings getState() {
+    public HCSettings getState() {
         return this;
     }
 
     @Override
-    public void loadState(CPSSettings state) {
+    public void loadState(HCSettings state) {
         XmlSerializerUtil.copyBean(state, this);
     }
 
-    public static CPSSettings getInstance() {
-        return ServiceManager.getService(CPSSettings.class);
+    public static HCSettings getInstance() {
+        return ServiceManager.getService(HCSettings.class);
     }
 }
