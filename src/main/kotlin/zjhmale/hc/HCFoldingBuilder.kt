@@ -61,8 +61,43 @@ class HCFoldingBuilder : FoldingBuilder {
     private val typeSymbols = arrayOf("::", "->", "=>")
     private val monadSymbols = arrayOf("mzero", "mempty", "<-")
 
+    private val settings = HCSettings.getInstance()
+
+    private fun isToggleOn(key: String): Boolean {
+        return (key == "pi" && settings.turnOnPi)
+                || (key == "tau" && settings.turnOnTau)
+                || (key == "`elem`" && settings.turnOnElem)
+                || (key == "`notElem`" && settings.turnOnNotElem)
+                || (key == "isSubsetOf`" && settings.turnOnIsSubsetOf)
+                || (key == "`union`" && settings.turnOnUnion)
+                || (key == "`intersect`" && settings.turnOnIntersect)
+                || (key == "`div`" && settings.turnOnDiv)
+                || (key == "sqrt" && settings.turnOnSqrt)
+                || (key == "::" && settings.turnOnTypeSig)
+                || (key == "forall" && settings.turnOnForall)
+                || (key == "." && settings.turnOnComp)
+                || (key == "->" && settings.turnOnArrowType)
+                || (key == "<-" && settings.turnOnBind)
+                || (key == "=>" && settings.turnOnTypeConstraint)
+                || (key == "==" && settings.turnOnEqual)
+                || (key == "/=" && settings.turnOnNotEqual)
+                || (key == "&&" && settings.turnOnAnd)
+                || (key == "||" && settings.turnOnOr)
+                || (key == "not" && settings.turnOnNot)
+                || (key == ">=" && settings.turnOnGT)
+                || (key == "<=" && settings.turnOnLT)
+                || (key == "mzero" && settings.turnOnMZero)
+                || (key == "mempty" && settings.turnOnMEmpty)
+                || (key == "sum" && settings.turnOnSum)
+                || (key == "product" && settings.turnOnProduct)
+                || (key == "let" && settings.turnOnLet)
+                || (key == "where" && settings.turnOnWhere)
+                || (key == "\\" && settings.turnOnLambda)
+                || (key == "!!" && settings.turnOnIdx)
+                || (key == ".." && settings.turnOnRange)
+    }
+
     override fun buildFoldRegions(node: ASTNode, document: Document): Array<out FoldingDescriptor> {
-        val settings = HCSettings.getInstance()
         val descriptors = ArrayList<FoldingDescriptor>()
         val text = node.text
         val matcher = symbolPattern.matcher(text)
@@ -98,7 +133,7 @@ class HCFoldingBuilder : FoldingBuilder {
                     listOperators.contains(key)
                 }
 
-                if (shouldFold) {
+                if (shouldFold && isToggleOn(key)) {
                     val pretty = prettySymbolMaps[key] ?: return arrayOf<FoldingDescriptor>()
                     val range = TextRange.create(rangeStart, rangeEnd)
                     descriptors.add(HCFoldingDescriptor(node, range, null, pretty, true))
