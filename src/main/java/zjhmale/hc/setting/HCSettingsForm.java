@@ -40,6 +40,7 @@ public class HCSettingsForm {
     public JCheckBox prettyLambdaCheckBox;
     public JCheckBox prettyIdxCheckBox;
     public JCheckBox prettyRangeCheckBox;
+    public JCheckBox prettyUndefinedCheckBox;
 
     private final HCSettings settings;
 
@@ -82,7 +83,8 @@ public class HCSettingsForm {
                 || prettyLetCheckBox.isSelected() != settings.turnOnLet
                 || prettyWhereCheckBox.isSelected() != settings.turnOnWhere
                 || prettyIdxCheckBox.isSelected() != settings.turnOnIdx
-                || prettyRangeCheckBox.isSelected() != settings.turnOnRange;
+                || prettyRangeCheckBox.isSelected() != settings.turnOnRange
+                || prettyUndefinedCheckBox.isSelected() != settings.turnOnUndefined;
     }
 
     public void reset() {
@@ -117,9 +119,6 @@ public class HCSettingsForm {
         prettyWhereCheckBox.setSelected(settings.turnOnWhere);
         prettyIdxCheckBox.setSelected(settings.turnOnIdx);
         prettyRangeCheckBox.setSelected(settings.turnOnRange);
-    }
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
+        prettyUndefinedCheckBox.setSelected(settings.turnOnUndefined);
     }
 }
