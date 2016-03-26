@@ -3,12 +3,12 @@
   <grid id="27dc6" binding="panel" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="500" height="601"/>
+      <xy x="20" y="20" width="500" height="826"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="254b9" binding="appearancePanel" layout-manager="GridLayoutManager" row-count="22" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="254b9" binding="appearancePanel" layout-manager="GridLayoutManager" row-count="31" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -16,12 +16,12 @@
         <properties/>
         <border type="etched" title-resource-bundle="cps" title-key="settings.appearance.options"/>
         <children>
-          <component id="daa52" class="javax.swing.JCheckBox" binding="prettyDefCheckBox">
+          <component id="daa52" class="javax.swing.JCheckBox" binding="prettyPiCheckBox">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text resource-bundle="cps" key="settings.toggle.def"/>
+              <text resource-bundle="cps" key="settings.toggle.pi"/>
             </properties>
           </component>
           <hspacer id="adbd0">
@@ -29,172 +29,244 @@
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
           </hspacer>
-          <component id="b8d5" class="javax.swing.JCheckBox" binding="prettyDefnCheckBox" default-binding="true">
+          <component id="b8d5" class="javax.swing.JCheckBox" binding="prettyTauCheckBox">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text resource-bundle="cps" key="settings.toggle.defn"/>
+              <text resource-bundle="cps" key="settings.toggle.tau"/>
             </properties>
           </component>
-          <component id="be2d0" class="javax.swing.JCheckBox" binding="prettyFnCheckBox" default-binding="true">
+          <component id="be2d0" class="javax.swing.JCheckBox" binding="prettyIsSubsetOfCheckBox">
             <constraints>
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text resource-bundle="cps" key="settings.toggle.fn"/>
+              <text resource-bundle="cps" key="settings.toggle.isSubsetOf"/>
             </properties>
           </component>
-          <component id="b7372" class="javax.swing.JCheckBox" binding="prettyLambdaCheckBox">
+          <component id="b7372" class="javax.swing.JCheckBox" binding="prettyDivCheckBox">
             <constraints>
               <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.div"/>
+            </properties>
+          </component>
+          <component id="1276d" class="javax.swing.JCheckBox" binding="prettySqrtCheckBox">
+            <constraints>
+              <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.sqrt"/>
+            </properties>
+          </component>
+          <component id="23a44" class="javax.swing.JCheckBox" binding="prettyTypeConstraintCheckBox">
+            <constraints>
+              <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.typeConstraint"/>
+            </properties>
+          </component>
+          <component id="bf924" class="javax.swing.JCheckBox" binding="prettyEqualCheckBox">
+            <constraints>
+              <grid row="15" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.equal"/>
+            </properties>
+          </component>
+          <component id="7e6b3" class="javax.swing.JCheckBox" binding="prettyGTCheckBox">
+            <constraints>
+              <grid row="20" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.GT"/>
+            </properties>
+          </component>
+          <component id="dd682" class="javax.swing.JCheckBox" binding="prettyLTCheckBox">
+            <constraints>
+              <grid row="21" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.LT"/>
+            </properties>
+          </component>
+          <component id="8e252" class="javax.swing.JCheckBox" binding="prettyNotEqualCheckBox">
+            <constraints>
+              <grid row="16" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.notEqual"/>
+            </properties>
+          </component>
+          <component id="e9a83" class="javax.swing.JCheckBox" binding="prettyAndCheckBox">
+            <constraints>
+              <grid row="17" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.and"/>
+            </properties>
+          </component>
+          <component id="37769" class="javax.swing.JCheckBox" binding="prettyOrCheckBox">
+            <constraints>
+              <grid row="18" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.or"/>
+            </properties>
+          </component>
+          <component id="38382" class="javax.swing.JCheckBox" binding="prettyNotCheckBox">
+            <constraints>
+              <grid row="19" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.not"/>
+            </properties>
+          </component>
+          <component id="50700" class="javax.swing.JCheckBox" binding="prettyTypeSigCheckBox">
+            <constraints>
+              <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.typeSig"/>
+            </properties>
+          </component>
+          <component id="c8795" class="javax.swing.JCheckBox" binding="prettyForallCheckBox">
+            <constraints>
+              <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.forall"/>
+            </properties>
+          </component>
+          <component id="d44fd" class="javax.swing.JCheckBox" binding="prettyElemCheckBox">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.elem"/>
+            </properties>
+          </component>
+          <component id="3d6cf" class="javax.swing.JCheckBox" binding="prettyNotElemCheckBox">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.notElem"/>
+            </properties>
+          </component>
+          <component id="bd324" class="javax.swing.JCheckBox" binding="prettyUnionCheckBox">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.union"/>
+            </properties>
+          </component>
+          <component id="6c1f2" class="javax.swing.JCheckBox" binding="prettyIntersectCheckBox">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.intersect"/>
+            </properties>
+          </component>
+          <component id="40c21" class="javax.swing.JCheckBox" binding="prettyCompCheckBox">
+            <constraints>
+              <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.comp"/>
+            </properties>
+          </component>
+          <component id="f9c78" class="javax.swing.JCheckBox" binding="prettyArrowTypeCheckBox">
+            <constraints>
+              <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.arrowType"/>
+            </properties>
+          </component>
+          <component id="1c8a5" class="javax.swing.JCheckBox" binding="prettyBindCheckBox">
+            <constraints>
+              <grid row="13" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.bind"/>
+            </properties>
+          </component>
+          <component id="59644" class="javax.swing.JCheckBox" binding="prettyMZeroCheckBox">
+            <constraints>
+              <grid row="22" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.mzero"/>
+            </properties>
+          </component>
+          <component id="28506" class="javax.swing.JCheckBox" binding="prettyMEmptyCheckBox">
+            <constraints>
+              <grid row="23" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.mempty"/>
+            </properties>
+          </component>
+          <component id="9fbbe" class="javax.swing.JCheckBox" binding="prettySumCheckBox">
+            <constraints>
+              <grid row="24" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.sum"/>
+            </properties>
+          </component>
+          <component id="b1929" class="javax.swing.JCheckBox" binding="prettyProductCheckBox">
+            <constraints>
+              <grid row="25" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.product"/>
+            </properties>
+          </component>
+          <component id="bb518" class="javax.swing.JCheckBox" binding="prettyLetCheckBox">
+            <constraints>
+              <grid row="26" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.let"/>
+            </properties>
+          </component>
+          <component id="b97d7" class="javax.swing.JCheckBox" binding="prettyWhereCheckBox">
+            <constraints>
+              <grid row="27" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text resource-bundle="cps" key="settings.toggle.where"/>
+            </properties>
+          </component>
+          <component id="9a773" class="javax.swing.JCheckBox" binding="prettyLambdaCheckBox">
+            <constraints>
+              <grid row="28" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text resource-bundle="cps" key="settings.toggle.lambda"/>
             </properties>
           </component>
-          <component id="1276d" class="javax.swing.JCheckBox" binding="prettyNotEqualCheckBox">
+          <component id="2f140" class="javax.swing.JCheckBox" binding="prettyIdxCheckBox">
             <constraints>
-              <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="29" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text resource-bundle="cps" key="settings.toggle.notequal"/>
+              <text resource-bundle="cps" key="settings.toggle.idx"/>
             </properties>
           </component>
-          <component id="23a44" class="javax.swing.JCheckBox" binding="prettyPartialCheckBox" default-binding="true">
+          <component id="ad180" class="javax.swing.JCheckBox" binding="prettyRangeCheckBox">
             <constraints>
-              <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="30" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text resource-bundle="cps" key="settings.toggle.partial"/>
-            </properties>
-          </component>
-          <component id="bf924" class="javax.swing.JCheckBox" binding="prettySetCheckBox">
-            <constraints>
-              <grid row="15" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text resource-bundle="cps" key="settings.toggle.set"/>
-            </properties>
-          </component>
-          <component id="7e6b3" class="javax.swing.JCheckBox" binding="prettyThreadFirstCheckBox">
-            <constraints>
-              <grid row="20" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text resource-bundle="cps" key="settings.toggle.threadfirst"/>
-            </properties>
-          </component>
-          <component id="dd682" class="javax.swing.JCheckBox" binding="prettyThreadLastCheckBox">
-            <constraints>
-              <grid row="21" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text resource-bundle="cps" key="settings.toggle.threadlast"/>
-            </properties>
-          </component>
-          <component id="8e252" class="javax.swing.JCheckBox" binding="prettyEmptySetCheckBox">
-            <constraints>
-              <grid row="16" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text resource-bundle="cps" key="settings.toggle.emptyset"/>
-            </properties>
-          </component>
-          <component id="e9a83" class="javax.swing.JCheckBox" binding="prettySetUnionCheckBox">
-            <constraints>
-              <grid row="17" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text resource-bundle="cps" key="settings.toggle.setunion"/>
-            </properties>
-          </component>
-          <component id="37769" class="javax.swing.JCheckBox" binding="prettySetDifferenceCheckBox">
-            <constraints>
-              <grid row="18" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text resource-bundle="cps" key="settings.toggle.setdifference"/>
-            </properties>
-          </component>
-          <component id="38382" class="javax.swing.JCheckBox" binding="prettySetIntersectionCheckBox">
-            <constraints>
-              <grid row="19" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text resource-bundle="cps" key="settings.toggle.setintersection"/>
-            </properties>
-          </component>
-          <component id="50700" class="javax.swing.JCheckBox" binding="prettyGTCheckBox">
-            <constraints>
-              <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="pretty &gt;="/>
-            </properties>
-          </component>
-          <component id="c8795" class="javax.swing.JCheckBox" binding="prettyLTCheckBox">
-            <constraints>
-              <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="pretty &lt;="/>
-            </properties>
-          </component>
-          <component id="d44fd" class="javax.swing.JCheckBox" binding="prettyLetCheckBox">
-            <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="pretty let"/>
-            </properties>
-          </component>
-          <component id="3d6cf" class="javax.swing.JCheckBox" binding="prettyLetfnCheckBox">
-            <constraints>
-              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="pretty letfn"/>
-            </properties>
-          </component>
-          <component id="bd324" class="javax.swing.JCheckBox" binding="prettyDoseqCheckBox">
-            <constraints>
-              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="pretty doseq"/>
-            </properties>
-          </component>
-          <component id="6c1f2" class="javax.swing.JCheckBox" binding="prettyCompCheckBox">
-            <constraints>
-              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="pretty comp"/>
-            </properties>
-          </component>
-          <component id="40c21" class="javax.swing.JCheckBox" binding="prettyAndCheckBox">
-            <constraints>
-              <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="pretty and"/>
-            </properties>
-          </component>
-          <component id="f9c78" class="javax.swing.JCheckBox" binding="prettyOrCheckBox">
-            <constraints>
-              <grid row="12" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="pretty or"/>
-            </properties>
-          </component>
-          <component id="1c8a5" class="javax.swing.JCheckBox" binding="prettyNotCheckBox">
-            <constraints>
-              <grid row="13" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="pretty not"/>
+              <text resource-bundle="cps" key="settings.toggle.range"/>
             </properties>
           </component>
         </children>

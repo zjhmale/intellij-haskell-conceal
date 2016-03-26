@@ -9,28 +9,37 @@ public class HCSettingsForm {
     private JPanel appearancePanel;
     private JPanel panel;
 
-    public JCheckBox prettyDefCheckBox;
-    public JCheckBox prettyDefnCheckBox;
-    public JCheckBox prettyFnCheckBox;
-    public JCheckBox prettyLambdaCheckBox;
+    public JCheckBox prettyPiCheckBox;
+    public JCheckBox prettyTauCheckBox;
+    public JCheckBox prettyIsSubsetOfCheckBox;
+    public JCheckBox prettyDivCheckBox;
+    public JCheckBox prettySqrtCheckBox;
+    public JCheckBox prettyTypeSigCheckBox;
+    public JCheckBox prettyForallCheckBox;
+    public JCheckBox prettyTypeConstraintCheckBox;
+    public JCheckBox prettyEqualCheckBox;
     public JCheckBox prettyNotEqualCheckBox;
-    public JCheckBox prettyGTCheckBox;
-    public JCheckBox prettyLTCheckBox;
-    public JCheckBox prettyPartialCheckBox;
-    public JCheckBox prettySetCheckBox;
-    public JCheckBox prettyEmptySetCheckBox;
-    public JCheckBox prettySetUnionCheckBox;
-    public JCheckBox prettySetDifferenceCheckBox;
-    public JCheckBox prettySetIntersectionCheckBox;
-    public JCheckBox prettyThreadFirstCheckBox;
-    public JCheckBox prettyThreadLastCheckBox;
-    public JCheckBox prettyLetCheckBox;
-    public JCheckBox prettyLetfnCheckBox;
-    public JCheckBox prettyDoseqCheckBox;
-    public JCheckBox prettyCompCheckBox;
     public JCheckBox prettyAndCheckBox;
     public JCheckBox prettyOrCheckBox;
     public JCheckBox prettyNotCheckBox;
+    public JCheckBox prettyGTCheckBox;
+    public JCheckBox prettyLTCheckBox;
+    public JCheckBox prettyElemCheckBox;
+    public JCheckBox prettyNotElemCheckBox;
+    public JCheckBox prettyUnionCheckBox;
+    public JCheckBox prettyIntersectCheckBox;
+    public JCheckBox prettyCompCheckBox;
+    public JCheckBox prettyArrowTypeCheckBox;
+    public JCheckBox prettyBindCheckBox;
+    public JCheckBox prettyMZeroCheckBox;
+    public JCheckBox prettyMEmptyCheckBox;
+    public JCheckBox prettySumCheckBox;
+    public JCheckBox prettyProductCheckBox;
+    public JCheckBox prettyLetCheckBox;
+    public JCheckBox prettyWhereCheckBox;
+    public JCheckBox prettyLambdaCheckBox;
+    public JCheckBox prettyIdxCheckBox;
+    public JCheckBox prettyRangeCheckBox;
 
     private final HCSettings settings;
 
@@ -43,52 +52,74 @@ public class HCSettingsForm {
     }
 
     public boolean isModified() {
-        return prettyDefCheckBox.isSelected() != settings.turnOnDef
-                || prettyDefnCheckBox.isSelected() != settings.turnOnDefn
-                || prettyFnCheckBox.isSelected() != settings.turnOnFn
-                || prettyLetCheckBox.isSelected() != settings.turnOnLet
-                || prettyLetfnCheckBox.isSelected() != settings.turnOnLetfn
-                || prettyDoseqCheckBox.isSelected() != settings.turnOnDoseq
+        return prettyPiCheckBox.isSelected() != settings.turnOnPi
+                || prettyTauCheckBox.isSelected() != settings.turnOnTau
+                || prettyIsSubsetOfCheckBox.isSelected() != settings.turnOnIsSubsetOf
+                || prettyElemCheckBox.isSelected() != settings.turnOnElem
+                || prettyNotElemCheckBox.isSelected() != settings.turnOnNotElem
+                || prettyUnionCheckBox.isSelected() != settings.turnOnUnion
+                || prettyIntersectCheckBox.isSelected() != settings.turnOnIntersect
+                || prettyDivCheckBox.isSelected() != settings.turnOnDiv
+                || prettySqrtCheckBox.isSelected() != settings.turnOnSqrt
+                || prettyTypeSigCheckBox.isSelected() != settings.turnOnTypeSig
+                || prettyForallCheckBox.isSelected() != settings.turnOnForall
                 || prettyCompCheckBox.isSelected() != settings.turnOnComp
-                || prettyLambdaCheckBox.isSelected() != settings.turnOnLambda
+                || prettyArrowTypeCheckBox.isSelected() != settings.turnOnArrowType
+                || prettyBindCheckBox.isSelected() != settings.turnOnBind
+                || prettyTypeConstraintCheckBox.isSelected() != settings.turnOnTypeConstraint
+                || prettyEqualCheckBox.isSelected() != settings.turnOnEqual
                 || prettyNotEqualCheckBox.isSelected() != settings.turnOnNotEqual
-                || prettyGTCheckBox.isSelected() != settings.turnOnGT
-                || prettyLTCheckBox.isSelected() != settings.turnOnLT
                 || prettyAndCheckBox.isSelected() != settings.turnOnAnd
                 || prettyOrCheckBox.isSelected() != settings.turnOnOr
                 || prettyNotCheckBox.isSelected() != settings.turnOnNot
-                || prettyPartialCheckBox.isSelected() != settings.turnOnPartial
-                || prettySetCheckBox.isSelected() != settings.turnOnSet
-                || prettyEmptySetCheckBox.isSelected() != settings.turnOnEmptySet
-                || prettySetUnionCheckBox.isSelected() != settings.turnOnSetUnion
-                || prettySetDifferenceCheckBox.isSelected() != settings.turnOnSetDifference
-                || prettySetIntersectionCheckBox.isSelected() != settings.turnOnSetIntersection
-                || prettyThreadFirstCheckBox.isSelected() != settings.turnOnThreadFirst
-                || prettyThreadLastCheckBox.isSelected() != settings.turnOnThreadLast;
+                || prettyGTCheckBox.isSelected() != settings.turnOnGT
+                || prettyLTCheckBox.isSelected() != settings.turnOnLT
+                || prettyMZeroCheckBox.isSelected() != settings.turnOnMZero
+                || prettyMEmptyCheckBox.isSelected() != settings.turnOnMEmpty
+                || prettySumCheckBox.isSelected() != settings.turnOnSum
+                || prettyProductCheckBox.isSelected() != settings.turnOnProduct
+                || prettyLambdaCheckBox.isSelected() != settings.turnOnLambda
+                || prettyLetCheckBox.isSelected() != settings.turnOnLet
+                || prettyWhereCheckBox.isSelected() != settings.turnOnWhere
+                || prettyIdxCheckBox.isSelected() != settings.turnOnIdx
+                || prettyRangeCheckBox.isSelected() != settings.turnOnRange;
     }
 
     public void reset() {
-        prettyDefCheckBox.setSelected(settings.turnOnDef);
-        prettyDefnCheckBox.setSelected(settings.turnOnDefn);
-        prettyFnCheckBox.setSelected(settings.turnOnFn);
-        prettyLetCheckBox.setSelected(settings.turnOnLet);
-        prettyLetfnCheckBox.setSelected(settings.turnOnLetfn);
-        prettyDoseqCheckBox.setSelected(settings.turnOnDoseq);
+        prettyPiCheckBox.setSelected(settings.turnOnPi);
+        prettyTauCheckBox.setSelected(settings.turnOnTau);
+        prettyIsSubsetOfCheckBox.setSelected(settings.turnOnIsSubsetOf);
+        prettyElemCheckBox.setSelected(settings.turnOnElem);
+        prettyNotElemCheckBox.setSelected(settings.turnOnNotElem);
+        prettyUnionCheckBox.setSelected(settings.turnOnUnion);
+        prettyIntersectCheckBox.setSelected(settings.turnOnIntersect);
+        prettyDivCheckBox.setSelected(settings.turnOnDiv);
+        prettySqrtCheckBox.setSelected(settings.turnOnSqrt);
+        prettyTypeSigCheckBox.setSelected(settings.turnOnTypeSig);
+        prettyForallCheckBox.setSelected(settings.turnOnForall);
         prettyCompCheckBox.setSelected(settings.turnOnComp);
-        prettyLambdaCheckBox.setSelected(settings.turnOnLambda);
+        prettyArrowTypeCheckBox.setSelected(settings.turnOnArrowType);
+        prettyBindCheckBox.setSelected(settings.turnOnBind);
+        prettyTypeConstraintCheckBox.setSelected(settings.turnOnTypeConstraint);
+        prettyEqualCheckBox.setSelected(settings.turnOnEqual);
         prettyNotEqualCheckBox.setSelected(settings.turnOnNotEqual);
-        prettyGTCheckBox.setSelected(settings.turnOnGT);
-        prettyLTCheckBox.setSelected(settings.turnOnLT);
         prettyAndCheckBox.setSelected(settings.turnOnAnd);
         prettyOrCheckBox.setSelected(settings.turnOnOr);
         prettyNotCheckBox.setSelected(settings.turnOnNot);
-        prettyPartialCheckBox.setSelected(settings.turnOnPartial);
-        prettySetCheckBox.setSelected(settings.turnOnSet);
-        prettyEmptySetCheckBox.setSelected(settings.turnOnEmptySet);
-        prettySetUnionCheckBox.setSelected(settings.turnOnSetUnion);
-        prettySetDifferenceCheckBox.setSelected(settings.turnOnSetDifference);
-        prettySetIntersectionCheckBox.setSelected(settings.turnOnSetIntersection);
-        prettyThreadFirstCheckBox.setSelected(settings.turnOnThreadFirst);
-        prettyThreadLastCheckBox.setSelected(settings.turnOnThreadLast);
+        prettyGTCheckBox.setSelected(settings.turnOnGT);
+        prettyLTCheckBox.setSelected(settings.turnOnLT);
+        prettyMZeroCheckBox.setSelected(settings.turnOnMZero);
+        prettyMEmptyCheckBox.setSelected(settings.turnOnMEmpty);
+        prettySumCheckBox.setSelected(settings.turnOnSum);
+        prettyProductCheckBox.setSelected(settings.turnOnProduct);
+        prettyLambdaCheckBox.setSelected(settings.turnOnLambda);
+        prettyLetCheckBox.setSelected(settings.turnOnLet);
+        prettyWhereCheckBox.setSelected(settings.turnOnWhere);
+        prettyIdxCheckBox.setSelected(settings.turnOnIdx);
+        prettyRangeCheckBox.setSelected(settings.turnOnRange);
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 }

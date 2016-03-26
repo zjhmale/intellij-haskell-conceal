@@ -12,31 +12,40 @@ import org.jetbrains.annotations.Nullable;
  */
 
 @State(name = "HCSettings", storages = {
-        @Storage(id = "clojureprettysymbol_config", file = "$APP_CONFIG$/clojureprettysymbol_application.xml")
+        @Storage(id = "haskellconceal_config", file = "$APP_CONFIG$/haskellconceal_application.xml")
 })
 public class HCSettings implements PersistentStateComponent<HCSettings> {
-    public boolean turnOnFn = true;
-    public boolean turnOnPartial = true;
-    public boolean turnOnDef = true;
-    public boolean turnOnDefn = true;
-    public boolean turnOnLet = true;
-    public boolean turnOnLetfn = true;
-    public boolean turnOnDoseq = true;
+    public boolean turnOnPi = true;
+    public boolean turnOnTau = true;
+    public boolean turnOnElem = true;
+    public boolean turnOnNotElem = true;
+    public boolean turnOnIsSubsetOf = true;
+    public boolean turnOnUnion = true;
+    public boolean turnOnIntersect = true;
+    public boolean turnOnDiv = true;
+    public boolean turnOnSqrt = true;
+    public boolean turnOnTypeSig = true;
+    public boolean turnOnForall = true;
     public boolean turnOnComp = true;
-    public boolean turnOnThreadFirst = true;
-    public boolean turnOnThreadLast = true;
+    public boolean turnOnArrowType = true;
+    public boolean turnOnBind = true;
+    public boolean turnOnTypeConstraint = true;
+    public boolean turnOnEqual = true;
     public boolean turnOnNotEqual = true;
-    public boolean turnOnGT = true;
-    public boolean turnOnLT = true;
     public boolean turnOnAnd = true;
     public boolean turnOnOr = true;
     public boolean turnOnNot = true;
+    public boolean turnOnGT = true;
+    public boolean turnOnLT = true;
+    public boolean turnOnMZero = true;
+    public boolean turnOnMEmpty = true;
+    public boolean turnOnSum = true;
+    public boolean turnOnProduct = true;
+    public boolean turnOnLet = true;
+    public boolean turnOnWhere = true;
     public boolean turnOnLambda = true;
-    public boolean turnOnSet = true;
-    public boolean turnOnEmptySet = true;
-    public boolean turnOnSetUnion = true;
-    public boolean turnOnSetDifference = true;
-    public boolean turnOnSetIntersection = true;
+    public boolean turnOnIdx = true;
+    public boolean turnOnRange = true;
 
     @Nullable
     @Override

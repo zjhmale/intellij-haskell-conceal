@@ -80,7 +80,7 @@ class HCFoldingBuilder : FoldingBuilder {
                 val nextChar = text.substring(rangeEnd, rangeEnd + 1)
                 val prevChar = text.substring(rangeStart - 1, rangeStart)
 
-                val shouldFold = if ((constants + setOperators + logicOperators + controlFlowSymbols + typeSymbols).contains(key)) {
+                val shouldFold = if ((constants + setOperators + logicOperators + controlFlowSymbols + typeSymbols + monadSymbols).contains(key)) {
                     prevChar == " " && nextChar == " "
                 } else if (arithOprators.contains(key)) {
                     if (key == "`div`") {
@@ -93,12 +93,6 @@ class HCFoldingBuilder : FoldingBuilder {
                         prevChar == " " && nextChar == " "
                     } else {
                         prevChar == " " || prevChar == "("
-                    }
-                } else if (monadSymbols.contains(key)) {
-                    if (key == "<-") {
-                        prevChar == " " && (nextChar == " " || nextChar == "\n")
-                    } else {
-                        prevChar == " " && nextChar == " "
                     }
                 } else {
                     listOperators.contains(key)
