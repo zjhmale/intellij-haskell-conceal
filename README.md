@@ -1,4 +1,4 @@
-## Clojure Pretty Symbol Plugin
+## Haskell Conceal Plugin
 
 https://plugins.jetbrains.com/plugin/8224
 
