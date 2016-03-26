@@ -1,6 +1,6 @@
 ## Haskell Conceal Plugin
 
-https://plugins.jetbrains.com/plugin/8224
+https://plugins.jetbrains.com/plugin/8268
 
 ## Snapshots
 
@@ -18,7 +18,7 @@ https://plugins.jetbrains.com/plugin/8224
 
 ![](./pics/configfold.png)
 
-* to turn on or turn off specific pretty symbol.
+* to turn on or turn off specific conceal.
 
 ![](./pics/settings.png)
 
@@ -27,6 +27,10 @@ https://plugins.jetbrains.com/plugin/8224
 * `./gradlew runIdea`
 * `./gradlew buildPlugin`
 * `./gradlew test`
+
+## Known Issues
+
+* [unicode bug in Intellij IDE Editor](https://youtrack.jetbrains.com/issue/IDEA-72989) so can not support `𝐓 𝐅 𝐒 𝔻 𝔹` which is greater than `U+FFFF` for now.
 
 ## License
 
