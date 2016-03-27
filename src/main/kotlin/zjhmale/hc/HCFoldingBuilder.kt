@@ -119,14 +119,12 @@ class HCFoldingBuilder : FoldingBuilder {
                 val nextChar = text.substring(rangeEnd, rangeEnd + 1)
                 val prevChar = text.substring(rangeStart - 1, rangeStart)
 
-                val shouldFold = if ((constants + controlFlowSymbols + typeSymbols + monadSymbols).contains(key)) {
-                    if (key == "undefined" || key == "[]") {
-                        prevChar == " " && (nextChar == " " || nextChar == "\n")
-                    } else {
-                        prevChar == " " && nextChar == " "
-                    }
+                val shouldFold = if ((constants + controlFlowSymbols + monadSymbols).contains(key)) {
+                    prevChar == " " && (nextChar == " " || nextChar == "\n")
                 } else if ((arithOprators + logicOperators + setOperators).contains(key)) {
                     (prevChar == " " || prevChar == "(") && (nextChar == " " || nextChar == ")")
+                } else if (typeSymbols.contains(key)) {
+                    prevChar == " " && nextChar == " "
                 } else if (functionSymbols.contains(key)) {
                     if (key == ".") {
                         prevChar == " " && nextChar == " "
