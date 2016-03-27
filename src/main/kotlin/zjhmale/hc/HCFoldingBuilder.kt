@@ -53,8 +53,8 @@ class HCFoldingBuilder : FoldingBuilder {
             ".." to "…"
     )
 
-    private val constants = arrayOf("pi", "tau", "undefined")
-    private val setOperators = arrayOf("[]", "`elem`", "`notElem`", "`isSubsetOf`", "`union`", "`intersect`")
+    private val constants = arrayOf("pi", "tau", "undefined", "[]")
+    private val setOperators = arrayOf("`elem`", "`notElem`", "`isSubsetOf`", "`union`", "`intersect`")
     private val arithOprators = arrayOf("`div`", "sqrt", "sum", "product")
     private val logicOperators = arrayOf("==", "/=", "&&", "||", "not", ">=", "<=", "forall")
     private val listOperators = arrayOf("!!", "..")
@@ -119,18 +119,14 @@ class HCFoldingBuilder : FoldingBuilder {
                 val nextChar = text.substring(rangeEnd, rangeEnd + 1)
                 val prevChar = text.substring(rangeStart - 1, rangeStart)
 
-                val shouldFold = if ((constants + setOperators + logicOperators + controlFlowSymbols + typeSymbols + monadSymbols).contains(key)) {
+                val shouldFold = if ((constants + controlFlowSymbols + typeSymbols + monadSymbols).contains(key)) {
                     if (key == "undefined" || key == "[]") {
                         prevChar == " " && (nextChar == " " || nextChar == "\n")
                     } else {
                         prevChar == " " && nextChar == " "
                     }
-                } else if (arithOprators.contains(key)) {
-                    if (key == "`div`") {
-                        prevChar == " " && nextChar == " "
-                    } else {
-                        (prevChar == " " || prevChar == "(") && nextChar == " "
-                    }
+                } else if ((arithOprators + logicOperators + setOperators).contains(key)) {
+                    (prevChar == " " || prevChar == "(") && (nextChar == " " || nextChar == ")")
                 } else if (functionSymbols.contains(key)) {
                     if (key == ".") {
                         prevChar == " " && nextChar == " "
