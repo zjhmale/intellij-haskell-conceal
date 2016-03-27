@@ -21,7 +21,7 @@ class HCFoldingBuilder : FoldingBuilder {
             "pi" to "π",
             "tau" to "τ",
             "undefined" to "⊥",
-            "[]" to "∅",
+            "[]" to "Ø",
             "`elem`" to "∈",
             "`notElem`" to "∉",
             "`isSubsetOf`" to "⊆",
