@@ -8,6 +8,10 @@
     ]]></description>
 
   <change-notes><![CDATA[
+      <p>1.1:</p>
+      <ul>
+        <li>Conceal empty list</li>
+      </ul>
       <p>1.0:</p>
       <ul>
         <li>Display unicode operators in Haskell code</li>
