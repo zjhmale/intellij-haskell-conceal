@@ -18,6 +18,7 @@ public class HCSettings implements PersistentStateComponent<HCSettings> {
     public boolean turnOnPi = true;
     public boolean turnOnTau = true;
     public boolean turnOnUndefined = true;
+    public boolean turnOnEmptyList = true;
     public boolean turnOnElem = true;
     public boolean turnOnNotElem = true;
     public boolean turnOnIsSubsetOf = true;

@@ -14,13 +14,14 @@ import java.util.regex.Pattern
  */
 class HCFoldingBuilder : FoldingBuilder {
     private val symbolPattern = Pattern.compile(
-            "pi|tau|undefined|`elem`|`notElem`|`isSubsetOf`|`union`|`intersect`|`div`|sqrt|<=|\\\\|::|!!|\\.\\.|forall|\\.|->|<-|=>|==|/=|&&|\\|\\||not|>=|<=|mzero|mempty|sum|product|let|where"
+            "pi|tau|undefined|\\[\\]|`elem`|`notElem`|`isSubsetOf`|`union`|`intersect`|`div`|sqrt|<=|\\\\|::|!!|\\.\\.|forall|\\.|->|<-|=>|==|/=|&&|\\|\\||not|>=|<=|mzero|mempty|sum|product|let|where"
     )
 
     private val prettySymbolMaps = hashMapOf(
             "pi" to "π",
             "tau" to "τ",
             "undefined" to "⊥",
+            "[]" to "∅",
             "`elem`" to "∈",
             "`notElem`" to "∉",
             "`isSubsetOf`" to "⊆",
@@ -53,7 +54,7 @@ class HCFoldingBuilder : FoldingBuilder {
     )
 
     private val constants = arrayOf("pi", "tau", "undefined")
-    private val setOperators = arrayOf("`elem`", "`notElem`", "`isSubsetOf`", "`union`", "`intersect`")
+    private val setOperators = arrayOf("[]", "`elem`", "`notElem`", "`isSubsetOf`", "`union`", "`intersect`")
     private val arithOprators = arrayOf("`div`", "sqrt", "sum", "product")
     private val logicOperators = arrayOf("==", "/=", "&&", "||", "not", ">=", "<=", "forall")
     private val listOperators = arrayOf("!!", "..")
@@ -68,6 +69,7 @@ class HCFoldingBuilder : FoldingBuilder {
         return (key == "pi" && settings.turnOnPi)
                 || (key == "tau" && settings.turnOnTau)
                 || (key == "undefined" && settings.turnOnTau)
+                || (key == "[]" && settings.turnOnEmptyList)
                 || (key == "`elem`" && settings.turnOnElem)
                 || (key == "`notElem`" && settings.turnOnNotElem)
                 || (key == "isSubsetOf`" && settings.turnOnIsSubsetOf)
@@ -118,7 +120,7 @@ class HCFoldingBuilder : FoldingBuilder {
                 val prevChar = text.substring(rangeStart - 1, rangeStart)
 
                 val shouldFold = if ((constants + setOperators + logicOperators + controlFlowSymbols + typeSymbols + monadSymbols).contains(key)) {
-                    if (key == "undefined") {
+                    if (key == "undefined" || key == "[]") {
                         prevChar == " " && (nextChar == " " || nextChar == "\n")
                     } else {
                         prevChar == " " && nextChar == " "

@@ -54,6 +54,7 @@ class HCConfigurable : Configurable {
         settings.turnOnIdx = settingsForm?.prettyIdxCheckBox?.isSelected ?: true
         settings.turnOnRange = settingsForm?.prettyRangeCheckBox?.isSelected ?: true
         settings.turnOnUndefined = settingsForm?.prettyUndefinedCheckBox?.isSelected ?: true
+        settings.turnOnEmptyList = settingsForm?.prettyEmptyListCheckBox?.isSelected ?: true
     }
 
     override fun reset() {
