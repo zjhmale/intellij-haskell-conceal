@@ -68,7 +68,7 @@ class HCFoldingBuilder : FoldingBuilder {
     private fun isToggleOn(key: String): Boolean {
         return (key == "pi" && settings.turnOnPi)
                 || (key == "tau" && settings.turnOnTau)
-                || (key == "undefined" && settings.turnOnTau)
+                || (key == "undefined" && settings.turnOnUndefined)
                 || (key == "[]" && settings.turnOnEmptyList)
                 || (key == "`elem`" && settings.turnOnElem)
                 || (key == "`notElem`" && settings.turnOnNotElem)
@@ -115,31 +115,30 @@ class HCFoldingBuilder : FoldingBuilder {
                 rangeStart += 1
             }
 
-            if (rangeStart > nodeRange.startOffset && rangeEnd < nodeRange.endOffset) {
-                val nextChar = text.substring(rangeEnd, rangeEnd + 1)
-                val prevChar = text.substring(rangeStart - 1, rangeStart)
+            if (rangeEnd + 1 > text.length) continue
+            val nextChar = text.substring(rangeEnd, rangeEnd + 1)
+            val prevChar = text.substring(rangeStart - 1, rangeStart)
 
-                val shouldFold = if ((constants + controlFlowSymbols + monadSymbols).contains(key)) {
-                    prevChar == " " && (nextChar == " " || nextChar == "\n")
-                } else if ((arithOprators + logicOperators + setOperators).contains(key)) {
-                    (prevChar == " " || prevChar == "(") && (nextChar == " " || nextChar == ")")
-                } else if (typeSymbols.contains(key)) {
+            val shouldFold = if ((constants + controlFlowSymbols + monadSymbols).contains(key)) {
+                prevChar == " " && (nextChar == " " || nextChar == "\n")
+            } else if ((arithOprators + logicOperators + setOperators).contains(key)) {
+                (prevChar == " " || prevChar == "(") && (nextChar == " " || nextChar == ")")
+            } else if (typeSymbols.contains(key)) {
+                prevChar == " " && nextChar == " "
+            } else if (functionSymbols.contains(key)) {
+                if (key == ".") {
                     prevChar == " " && nextChar == " "
-                } else if (functionSymbols.contains(key)) {
-                    if (key == ".") {
-                        prevChar == " " && nextChar == " "
-                    } else {
-                        prevChar == " " || prevChar == "("
-                    }
                 } else {
-                    listOperators.contains(key)
+                    prevChar == " " || prevChar == "("
                 }
+            } else {
+                listOperators.contains(key)
+            }
 
-                if (shouldFold && isToggleOn(key)) {
-                    val pretty = prettySymbolMaps[key] ?: return arrayOf<FoldingDescriptor>()
-                    val range = TextRange.create(rangeStart, rangeEnd)
-                    descriptors.add(HCFoldingDescriptor(node, range, null, pretty, true))
-                }
+            if (shouldFold && isToggleOn(key)) {
+                val pretty = prettySymbolMaps[key] ?: return arrayOf<FoldingDescriptor>()
+                val range = TextRange.create(rangeStart, rangeEnd)
+                descriptors.add(HCFoldingDescriptor(node, range, null, pretty, true))
             }
         }
         return descriptors.toArray<FoldingDescriptor>(arrayOfNulls<FoldingDescriptor>(descriptors.size))
