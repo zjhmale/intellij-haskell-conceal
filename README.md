@@ -2,7 +2,7 @@
 
 https://plugins.jetbrains.com/plugin/8268
 
-## Snapshots
+## Screenshots
 
 ![](./pics/snapshot.gif)
 
