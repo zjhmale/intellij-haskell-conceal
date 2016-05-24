@@ -48,6 +48,8 @@ public class HCSettings implements PersistentStateComponent<HCSettings> {
     public boolean turnOnLambda = true;
     public boolean turnOnIdx = true;
     public boolean turnOnRange = true;
+    public boolean turnOnConcat = true;
+    public boolean turnOnUnit = true;
 
     @Nullable
     @Override

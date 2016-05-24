@@ -42,6 +42,8 @@ public class HCSettingsForm {
     public JCheckBox prettyRangeCheckBox;
     public JCheckBox prettyUndefinedCheckBox;
     public JCheckBox prettyEmptyListCheckBox;
+    public JCheckBox prettyConcatCheckBox;
+    public JCheckBox prettyUnitCheckBox;
 
     private final HCSettings settings;
 
@@ -86,6 +88,8 @@ public class HCSettingsForm {
                 || prettyIdxCheckBox.isSelected() != settings.turnOnIdx
                 || prettyRangeCheckBox.isSelected() != settings.turnOnRange
                 || prettyUndefinedCheckBox.isSelected() != settings.turnOnUndefined
+                || prettyConcatCheckBox.isSelected() != settings.turnOnConcat
+                || prettyUnitCheckBox.isSelected() != settings.turnOnUnit
                 || prettyEmptyListCheckBox.isSelected() != settings.turnOnEmptyList;
     }
 
@@ -123,5 +127,7 @@ public class HCSettingsForm {
         prettyRangeCheckBox.setSelected(settings.turnOnRange);
         prettyUndefinedCheckBox.setSelected(settings.turnOnUndefined);
         prettyEmptyListCheckBox.setSelected(settings.turnOnEmptyList);
+        prettyConcatCheckBox.setSelected(settings.turnOnConcat);
+        prettyUnitCheckBox.setSelected(settings.turnOnUnit);
     }
 }

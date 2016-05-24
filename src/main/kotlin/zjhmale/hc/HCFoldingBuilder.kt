@@ -14,7 +14,7 @@ import java.util.regex.Pattern
  */
 class HCFoldingBuilder : FoldingBuilder {
     private val symbolPattern = Pattern.compile(
-            "pi|tau|undefined|\\[\\]|`elem`|`notElem`|`isSubsetOf`|`union`|`intersect`|`div`|sqrt|<=|\\\\|::|!!|\\.\\.|forall|\\.|->|<-|=>|==|/=|&&|\\|\\||not|>=|<=|mzero|mempty|sum|product|let|where"
+            "\\(\\)|\\+\\+|pi|tau|undefined|\\[\\]|`elem`|`notElem`|`isSubsetOf`|`union`|`intersect`|`div`|sqrt|<=|\\\\|::|!!|\\.\\.|forall|\\.|->|<-|=>|==|/=|&&|\\|\\||not|>=|<=|mzero|mempty|sum|product|let|where"
     )
 
     private val prettySymbolMaps = hashMapOf(
@@ -48,16 +48,18 @@ class HCFoldingBuilder : FoldingBuilder {
             "product" to "∏",
             "let" to "⊢",
             "where" to "∵",
+            "++" to "⧺",
+            "()" to "∅",
             "\\" to "λ",
             "!!" to "‼",
             ".." to "…"
     )
 
-    private val constants = arrayOf("pi", "tau", "undefined", "[]")
+    private val constants = arrayOf("pi", "tau", "undefined", "[]", "()")
     private val setOperators = arrayOf("`elem`", "`notElem`", "`isSubsetOf`", "`union`", "`intersect`")
     private val arithOprators = arrayOf("`div`", "sqrt", "sum", "product")
     private val logicOperators = arrayOf("==", "/=", "&&", "||", "not", ">=", "<=", "forall")
-    private val listOperators = arrayOf("!!", "..")
+    private val listOperators = arrayOf("!!", "..", "++")
     private val functionSymbols = arrayOf(".", "\\")
     private val controlFlowSymbols = arrayOf("let", "where")
     private val typeSymbols = arrayOf("::", "->", "=>")
@@ -99,6 +101,8 @@ class HCFoldingBuilder : FoldingBuilder {
                 || (key == "\\" && settings.turnOnLambda)
                 || (key == "!!" && settings.turnOnIdx)
                 || (key == ".." && settings.turnOnRange)
+                || (key == "++" && settings.turnOnConcat)
+                || (key == "()" && settings.turnOnUnit)
     }
 
     override fun buildFoldRegions(node: ASTNode, document: Document): Array<out FoldingDescriptor> {
@@ -111,7 +115,7 @@ class HCFoldingBuilder : FoldingBuilder {
             val nodeRange = node.textRange
             var rangeStart = nodeRange.startOffset + matcher.start()
             var rangeEnd = nodeRange.startOffset + matcher.end()
-            if (key.startsWith("(")) {
+            if (key.startsWith("(") && key != "()") {
                 rangeStart += 1
             }
 
